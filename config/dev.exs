@@ -25,8 +25,18 @@ config :phx_react, PhxReactWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "ZaCIingJq1ALuGD9nr5pkQaJK32KzGCxBOusHdNgDi4XhTpCcfY5z1NXPUvfSJ4L",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:phx_react, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:phx_react, ~w(--watch)]}
+    # esbuild: {Esbuild, :install_and_run, [:phx_react, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "vite",
+      "build",
+      "--mode",
+      "development",
+      "--watch",
+      "--config",
+      "vite.config.js",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+    # tailwind: {Tailwind, :install_and_run, [:phx_react, ~w(--watch)]}
   ]
 
 # ## SSL Support

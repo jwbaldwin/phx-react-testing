@@ -12,6 +12,11 @@ defmodule PhxReactWeb.PageLive do
       Send toast from liveview
     </button>
     <div id="greeting" phx-hook="Greeter" data-name="react component" phx-update="ignore"></div>
+    <div class="py-10">
+      <button class="py-3 px-8 font-medium bg-orange-600 text-white rounded-2xl border-2 border-orange-500">
+        Delete
+      </button>
+    </div>
     """
   end
 

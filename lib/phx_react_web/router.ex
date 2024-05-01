@@ -8,6 +8,7 @@ defmodule PhxReactWeb.Router do
     plug :put_root_layout, html: {PhxReactWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Inertia.Plug
   end
 
   pipeline :api do
@@ -18,6 +19,7 @@ defmodule PhxReactWeb.Router do
     pipe_through :browser
 
     get "/test", TestController, :index
+    get "/test/json", TestController, :test_json
 
     live "/", PageLive, :index
     live "/login", LoginLive, :index

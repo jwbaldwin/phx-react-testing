@@ -10,5 +10,7 @@ defmodule PhxReactWeb.Layouts do
   """
   use PhxReactWeb, :html
 
+  import Inertia.HTML
+
   embed_templates "layouts/*"
 end

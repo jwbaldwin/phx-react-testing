@@ -44,6 +44,7 @@ defmodule PhxReactWeb do
 
       import Plug.Conn
       import PhxReactWeb.Gettext
+      import Inertia.Controller
 
       unquote(verified_routes())
     end

@@ -41,8 +41,8 @@ defmodule PhxReact.MixProject do
       {:phoenix_live_view, "~> 0.20.2"},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.3"},
-      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
+      # {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
+      # {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
        tag: "v2.1.1",
@@ -57,7 +57,8 @@ defmodule PhxReact.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.2"}
+      {:bandit, "~> 1.2"},
+      {:inertia, path: "~/repos/inertia-phoenix"}
     ]
   end
 
@@ -73,11 +74,17 @@ defmodule PhxReact.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind phx_react", "esbuild phx_react"],
+      # "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.setup": ["cmd --cd assets npm install"],
+      # "assets.build": ["tailwind phx_react", "esbuild phx_react"],
+      "assets.build": [
+        # "tailwind phx_react",
+        "cmd --cd assets npx vite build --config vite.config.ts"
+      ],
       "assets.deploy": [
-        "tailwind phx_react --minify",
-        "esbuild phx_react --minify",
+        # "tailwind phx_react --minify",
+        # "esbuild phx_react --minify",
+        "cmd --cd assets npx vite build --mode production --config vite.config.ts",
         "phx.digest"
       ]
     ]
