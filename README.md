@@ -7,6 +7,8 @@ This app is a play ground for the following PoC:
 - mount react component in liveview and send events back and forth
 - add an inertiajs page with props
 - sonner with the react mounter
+- using typescript
+- using vite instead of esbuild (commonJSOptions is a footgun, use npm install topbar and save time)
 ---------
 
 To start your Phoenix server:
