@@ -14,7 +14,7 @@ export const Greeter: React.FC<GreeterProps> = (props: GreeterProps) => {
 
   const incrementCount = (increment: number) => {
     updateCount(count + increment);
-    fetch("http://localhost:4000/test")
+    fetch("http://localhost:4000/test/json/other")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -22,7 +22,7 @@ export const Greeter: React.FC<GreeterProps> = (props: GreeterProps) => {
         throw new Error("Network response was not ok.");
       })
       .then((data) => {
-        console.log(data); // Log the response data
+        console.log("data", data); // Log the response data
         toast(data.data);
       })
       .catch((error) => {

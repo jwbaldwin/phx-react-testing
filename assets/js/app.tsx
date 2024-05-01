@@ -4,16 +4,30 @@
 //
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html";
+import "../css/app.css";
 // Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
-import Hooks from "@/lib/hooks";
-import { mount } from "@/lib/mounter";
+import Hooks from "./lib/hooks";
+import { mount } from "./lib/mounter";
 import { Toaster, toast } from "sonner";
 
 // Mount the toast react component
 mount("mount-toast", Toaster);
+
+import { createInertiaApp } from "@inertiajs/react";
+import { createRoot } from "react-dom/client";
+
+createInertiaApp({
+  resolve: (name) => {
+    const pages = import.meta.glob("./Pages/**/*.tsx", { eager: true });
+    return pages[`./Pages/${name}.tsx`];
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(<App {...props} />);
+  },
+});
 
 let csrfToken = document
   .querySelector("meta[name='csrf-token']")
@@ -30,7 +44,6 @@ topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" });
 window.addEventListener("phx:page-loading-start", (_info) => topbar.show(300));
 window.addEventListener("phx:page-loading-stop", (_info) => topbar.hide());
 window.addEventListener("phx:toaster", (event: CustomEvent) => {
-  console.log(event.detail);
   toast(event.detail.text);
 });
 

@@ -1,14 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 
 const roots = new Map();
 
-export function mount(id: string, Component: any, opts: any) {
+export function mount(id: string, Component: any, opts = []) {
   const rootElement = document.getElementById(id) as HTMLElement;
 
   let root = roots.get(id);
   if (!root) {
-    root = ReactDOM.createRoot(rootElement);
+    root = createRoot(rootElement);
     roots.set(id, root);
   }
 

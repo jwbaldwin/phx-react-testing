@@ -1,13 +1,13 @@
 import { mount } from "./mounter";
-import { Greeter, GreeterProps } from "@/app/greeter";
-import Login from "@/app/login";
+import { Greeter, GreeterProps } from "../app/greeter";
+import Login from "../app/login";
 
 let Hooks = {} as any;
 
 Hooks.LoginHook = {
   mounted() {
     console.log("mount login");
-    this.unmountComponent = mount(this.el.id, Login, null);
+    this.unmountComponent = mount(this.el.id, Login);
   },
   destroyed() {
     if (!this.unmountComponent) {
