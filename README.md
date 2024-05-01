@@ -1,4 +1,13 @@
-# PhxReact
+# PhxReactTesting
+
+---------
+This app is a play ground for the following PoC:
+- mount function to mount react components ad hoc
+- shadcn test
+- mount react component in liveview and send events back and forth
+- add an inertiajs page with props
+- sonner with the react mounter
+---------
 
 To start your Phoenix server:
 
