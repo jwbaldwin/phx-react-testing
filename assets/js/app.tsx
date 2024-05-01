@@ -8,7 +8,7 @@ import "../css/app.css";
 // Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
-import topbar from "../vendor/topbar";
+import topbar from "topbar";
 import Hooks from "./lib/hooks";
 import { mount } from "./lib/mounter";
 import { Toaster, toast } from "sonner";

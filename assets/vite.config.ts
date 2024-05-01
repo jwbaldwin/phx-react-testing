@@ -18,13 +18,9 @@ export default defineConfig(({ command, mode }) => {
         input: "js/app.tsx",
         output: {
           assetFileNames: "assets/[name][extname]",
-          chunkFileNames: "[name].js",
+          chunkFileNames: "assets/[name].js",
           entryFileNames: "assets/[name].js",
         },
-      },
-      commonjsOptions: {
-        exclude: [],
-        include: ["vendor/topbar.js"],
       },
     },
     css: {

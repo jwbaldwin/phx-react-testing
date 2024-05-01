@@ -3,7 +3,7 @@ defmodule PhxReactWeb.TestController do
 
   def index(conn, _) do
     conn
-    |> render_inertia("Home")
+    |> render_inertia("Home", %{name: "James"})
   end
 
   def test_json(conn, _) do

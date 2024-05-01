@@ -20,6 +20,7 @@
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
+    "topbar": "^2.0.2",
     "vite": "^5.2.10"
   },
   "devDependencies": {

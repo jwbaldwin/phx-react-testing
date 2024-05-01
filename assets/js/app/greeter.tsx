@@ -14,7 +14,7 @@ export const Greeter: React.FC<GreeterProps> = (props: GreeterProps) => {
 
   const incrementCount = (increment: number) => {
     updateCount(count + increment);
-    fetch("http://localhost:4000/test/json/other")
+    fetch("http://localhost:4000/test/json")
       .then((response) => {
         if (response.ok) {
           return response.json();
